@@ -7,7 +7,6 @@ class solution {
         System.out.println(result);
     }
     public static int maximizeSum(int[] nums, int k) {
-        int len=nums.length;
         int max=Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i]>max) {
