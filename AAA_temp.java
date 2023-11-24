@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 public class AAA_temp {
+    public static void main(String[] args) {
+    
+    }
     class Solution {
     static final int L = 10;
 
