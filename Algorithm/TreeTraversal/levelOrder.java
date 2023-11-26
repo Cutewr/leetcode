@@ -2,8 +2,6 @@ package Algorithm.TreeTraversal;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import Algorithm.TreeTraversal.Node;
-
 public class levelOrder {
     public static void main(String[] args) {
         Node tree=new Node(0, 
@@ -12,13 +10,18 @@ public class levelOrder {
         levelTraversal(tree);
     }
     public static void levelTraversal(Node root){
-        if(root==null)  return;
-        Queue<Node> queue=new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            
+        if (root==null) return;
+        Queue<Node> node=new LinkedList<>();
+        node.add(root);
+        while (!node.isEmpty()) {
+            Node temp=node.poll();
+            System.out.println(temp.val);
+            if (temp.left!=null) {
+                node.add(temp.left);
+            }
+            if (temp.right!=null) {
+                node.add(temp.right);
+            }
         }
-        System.out.println(root.val);
-
     }
 }
