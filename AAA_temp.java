@@ -1,11 +1,21 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class AAA_temp {
     public static void main(String[] args) {
+            int[] array1 = {1, 2, 3, 4, 5};
+            int[] array2 = {5, 4, 3, 2, 1};
     
+            boolean arraysEqual = Arrays.equals(array1, array2);
+    
+            if (arraysEqual) {
+                System.out.println("两个数组相同。");
+            } else {
+                System.out.println("两个数组不相同。");
+            }
     }
     class Solution {
     static final int L = 10;
