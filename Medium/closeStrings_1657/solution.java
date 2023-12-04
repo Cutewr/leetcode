@@ -9,7 +9,6 @@ package Medium.closeStrings_1657;
 给你两个字符串，word1 和 word2 。如果 word1 和 word2 接近 ，就返回 true ；否则，返回 false 。
  */
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
