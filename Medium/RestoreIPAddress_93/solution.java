@@ -1,5 +1,3 @@
-package Medium.RestoreIPAddress;
-
 import java.util.ArrayList;
 import java.util.List;
 
