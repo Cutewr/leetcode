@@ -5,6 +5,6 @@ public class solution {
         
     }
     public boolean findRotation(int[][] mat, int[][] target) {
-
+        return true;
     }
 }
