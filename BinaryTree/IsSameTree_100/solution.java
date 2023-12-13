@@ -6,9 +6,14 @@ import BinaryTree.TreeNode;
  */
 public class solution {
     public static void main(String[] args) {
-        
+        TreeNode p=new TreeNode(3,new TreeNode(9),new TreeNode(20,new TreeNode(15),new TreeNode(7)));
+        TreeNode q=new TreeNode(3,new TreeNode(9),new TreeNode(20,new TreeNode(15),new TreeNode(7)));
+        Boolean res=isSameTree(p, q);
+        System.out.println(res);
     }
     public static boolean isSameTree(TreeNode p, TreeNode q) {
-        return true;
+        if (p==null&&q==null)   return true;
+        if((p==null&&q!=null)||(p!=null&&q==null)||p.val!=q.val)   return false;
+        return (isSameTree(p.left, q.left)&&isSameTree(p.right, q.right));
     }
 }
