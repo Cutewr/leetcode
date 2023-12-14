@@ -1,39 +1,18 @@
 package BinaryTree.InvertTree_226;
 
 import BinaryTree.TreeNode;
-
+/*
+ * 给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点。
+ */
 public class solution {
-    public static void main(String[] args) {
-        TreeNode root=new TreeNode(3,new TreeNode(9),new TreeNode(20,new TreeNode(15),new TreeNode(7)));
-        TreeNode res=new TreeNode();
-        res=invertTree(root);
-        dfsOut(res);
-        System.out.println();
-        dfsOut(root);
-    }
-
     public static TreeNode invertTree(TreeNode root) {
-        invert(root);
+        if(root==null)  return null;
+        //互换根节点的左右节点
+        TreeNode temp=root.right;
+        root.right=root.left;
+        root.left=temp;
+        invertTree(root.left);
+        invertTree(root.right);
         return root;
-    }
-
-    public static void invert(TreeNode root){
-        if(root==null)  return;
-        change(root.left, root.right);
-        invert(root.left);
-        invert(root.right);
-    }
-
-    public static void change(TreeNode l,TreeNode r){
-        TreeNode temp=l;
-        l=r;
-        r=temp;
-    }
-
-    public static void dfsOut(TreeNode root){
-        if (root==null) {System.out.print("null "); return;}
-        System.out.print(root.val+" ");
-        dfsOut(root.left);
-        dfsOut(root.right);
     }
 }
