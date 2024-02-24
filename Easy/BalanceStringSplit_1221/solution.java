@@ -17,4 +17,21 @@ public class solution {
         }
         return count;
     }
+
+    public static int balancedStringSplit2(String s) {
+        int count=0;
+        int countL=0,countR=0;
+        for(char ch:s.toCharArray()){
+            if (ch=='L') {
+                countL++;
+            }
+            else{
+                countR++;
+            }
+            if (countL==countR) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
