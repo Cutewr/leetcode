@@ -1,3 +1,4 @@
+package Hard.nextPermutation;
 class solution{
     public static void main(String[] args) {
         int []nums={1,5,1};
