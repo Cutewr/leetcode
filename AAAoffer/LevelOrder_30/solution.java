@@ -1,29 +1,29 @@
 package AAAoffer.LevelOrder_30;
-import AAAoffer.Component.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import AAAoffer.Component.TreeNode;
+
 public class solution {
-    public List<List<Integer>> levelOrder(TreeNode root) {
+    public int[]levelOrder(TreeNode root){
         if (root==null) {
-            return null;
+            return new int[0];
         }
-        List<List<Integer>> res=new ArrayList<>();
         Queue<TreeNode> queue=new LinkedList<>();
+        List<Integer> list=new ArrayList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            int size=queue.size();
-            List<Integer> list=new ArrayList<>();
-            for(int i=0;i<size;i++){
-                TreeNode temp=queue.peek();
-                list.add(queue.poll().val);
-                if (temp.left!=null)  queue.add(temp.left);
-                if (temp.right!=null)  queue.add(temp.right);
-            }
-            res.add(list);
+            TreeNode temp=queue.poll();
+            list.add(temp.val);
+            if(temp.left!=null) queue.add(temp.left);
+            if(temp.right!=null) queue.add(temp.right);
+        }
+        int []res=new int[list.size()];
+        for (int i = 0; i < res.length; i++) {
+            res[i]=list.get(i);
         }
         return res;
     }
