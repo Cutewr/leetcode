@@ -1,59 +1,63 @@
 package Medium.Connect_117;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-import Algorithm.TreeTraversal.Node;
+import Algorithm.TreeTraversal.TreeNode;
 
 public class solution {
     public static void main(String[] args) {
-        Node tree=new Node(0,new Node(2,new Node(5),new Node(6)),
-                            new Node(4,new Node(7),null));
-        Node result=connect(tree);
+        TreeNode tree = new TreeNode(0, new TreeNode(2, new TreeNode(5), new TreeNode(6)),
+                new TreeNode(4, new TreeNode(7), null));
+        TreeNode result = connect(tree);
         System.out.println(result);
         System.out.println("---------------------------");
         check(result);
     }
-    public static Node connect(Node root) {
-        if (root==null) return null;
-        Queue<Node> tree=new LinkedList<>();
+
+    public static TreeNode connect(TreeNode root) {
+        if (root == null)
+            return null;
+        Queue<TreeNode> tree = new LinkedList<>();
         tree.add(root);
         while (!tree.isEmpty()) {
-            int levelCount=tree.size();
-            Node pre=new Node();
+            int levelCount = tree.size();
+            TreeNode pre = new TreeNode();
             for (int i = 0; i < levelCount; i++) {
-                Node temp=tree.poll();
-                //如果pre为空说明这是这一行第一个node
-                //不为空则指向这一行下一个元素
-                if (pre!=null) {
-                    pre.next=temp;
+                TreeNode temp = tree.poll();
+                // 如果pre为空说明这是这一行第一个node
+                // 不为空则指向这一行下一个元素
+                if (pre != null) {
+                    pre.next = temp;
                 }
-                pre=temp;
-                if (temp.left!=null) {
+                pre = temp;
+                if (temp.left != null) {
                     tree.add(temp.left);
                 }
-                if (temp.right!=null) {
+                if (temp.right != null) {
                     tree.add(temp.right);
                 }
             }
         }
         return root;
     }
-    public static void check(Node root){
-        Queue<Node> tree=new LinkedList<>();
+
+    public static void check(TreeNode root) {
+        Queue<TreeNode> tree = new LinkedList<>();
         tree.add(root);
         while (!tree.isEmpty()) {
-            Node temp=tree.poll();
-            if(temp.next==null){
+            TreeNode temp = tree.poll();
+            if (temp.next == null) {
                 System.out.println("null");
-            }else{
+            } else {
                 System.out.println(temp.next.val);
             }
-            if (temp.left!=null) {
+            if (temp.left != null) {
                 tree.add(temp.left);
             }
-            if (temp.right!=null) {
+            if (temp.right != null) {
                 tree.add(temp.right);
-            }                
+            }
         }
     }
 }
